@@ -1,3 +1,17 @@
+
+echo "Enable Needed Services"
+gcloud services enable datalineage.googleapis.com \
+    compute.googleapis.com \
+    dataform.googleapis.com \
+    aiplatform.googleapis.com \
+    datacatalog.googleapis.com \
+    dataplex.googleapis.com \
+    bigqueryunified.googleapis.com
+    
+echo "Wait 2 minutes for services to be enabled"
+sleep 2m
+
+echo "Create VPC"
 VPC_NAME=default
 GCP_PROJECT_ID=$(gcloud config get project)
 gcloud compute networks create $VPC_NAME \
@@ -6,6 +20,7 @@ gcloud compute networks create $VPC_NAME \
 --mtu=1460 \
 --bgp-routing-mode=regional
 
+echo "Create Subnet"
 SUBNET_CIDR=10.0.0.0/16
 SUBNET_NAME=default
 LOCATION=us-central1
@@ -16,6 +31,7 @@ gcloud compute networks subnets create $SUBNET_NAME \
  --enable-private-ip-google-access \
  --project $GCP_PROJECT_ID
 
+echo "Create Firewall Rules"
 gcloud compute firewall-rules create allow-pypi-outbound \
     --network=$VPC_NAME \
     --action=ALLOW \
@@ -23,6 +39,7 @@ gcloud compute firewall-rules create allow-pypi-outbound \
     --rules=tcp:443 \
     --destination-ranges=0.0.0.0/0
 
+echo "Create Routes (for pip install)"
 VPC_NAME=default
 gcloud compute routers create router-for-nat \
     --network=$VPC_NAME \
@@ -34,7 +51,3 @@ gcloud compute routers nats create notebook-nat-gateway \
     --nat-all-subnet-ip-ranges \
     --auto-allocate-nat-external-ips
 
-gcloud services enable datalineage.googleapis.com \
-    compute.googleapis.com \
-    dataform.googleapis.com \
-    aiplatform.googleapis.com
