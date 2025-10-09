@@ -29,7 +29,7 @@ chmod +x prerequisites.sh
 
 ## Notebook Deep Dive
 
-Each notebook demonstrates a key aspect of data governance using Google Cloud Dataplex. These hands-on labs showcase real-world applications of metadata management, data quality, and lineage tracking.
+Each notebook covers a different aspect of data governance using Dataplex. You'll get hands-on experience with metadata management, data quality, and lineage tracking.
 
 ### 00 - Dataplex Universal Catalog Introduction
 **Duration:** ~10 minutes
@@ -37,37 +37,29 @@ Each notebook demonstrates a key aspect of data governance using Google Cloud Da
 **[View Notebook](./00%20-%20Dataplex%20Universal%20Catalog%20Introduction.ipynb)**
 
 **What You'll Learn:**
-- Understand the Dataplex Universal Catalog concept model (Entries, Aspects, Entry Types)
-- Create and manage catalog entries programmatically
-- Attach metadata aspects to data assets
-- Search and discover data across your organization
+- How the Dataplex Universal Catalog works (Entries, Aspects, Entry Types)
+- Creating and managing catalog entries with code
+- Attaching metadata to your data assets
+- Searching for data across your organization
 
-**Business Value:**
-This notebook demonstrates how organizations can build a centralized metadata catalog to improve data discovery and governance. By understanding how to organize metadata using entries and aspects, data teams can create a searchable, well-documented data estate that reduces time spent searching for data and improves data literacy across the organization.
+**Why This Matters:**
+If your team wastes time hunting for data or doesn't know what datasets exist, a metadata catalog helps. You'll learn how to build a searchable catalog that makes it easier for people to find and understand your data assets.
 
 ---
 
 ### 01 - Load Data and Data Quality
 **Duration:** ~20 minutes
-**Technologies:** Data Lineage, Data Quality, BigQuery, BigLake, Iceberg
+**Technologies:** Data Quality, Data Profiling, Data Lineage
 **[View Notebook](./01%20-%20Load%20data%20and%20DQ.ipynb)**
 
 **What You'll Learn:**
-- Build a complete Bronze → Silver → Gold data pipeline
-- Inject intentional data quality issues for detection
-- Create Dataplex Data Profiling scans for statistical analysis
-- Define custom data quality rules (completeness, uniqueness, validity, referential integrity)
-- Use column-level lineage to trace data quality issues back to source
-- Implement different table formats (Native BigQuery, BigLake CSV, BigLake Iceberg)
+- Building a Bronze → Silver → Gold data pipeline
+- Using Dataplex to detect data quality problems (duplicates, nulls, bad values, etc.)
+- Setting up automated data quality checks
+- Tracing quality issues back to their source with column-level lineage
 
-**Business Value:**
-This notebook demonstrates a production-grade approach to data quality management. By intentionally introducing and then detecting quality issues (duplicates, nulls, inconsistent values, invalid dates, referential integrity violations), teams learn how to:
-- Prevent bad data from reaching business reports
-- Trace data quality problems to their source using lineage
-- Implement automated quality checks at multiple pipeline stages
-- Build trust in data through systematic validation
-
-Real-world impact includes reduced incidents from bad data, faster root cause analysis when issues occur, and improved data reliability for critical business decisions.
+**Why This Matters:**
+Bad data breaks reports and leads to wrong decisions. This notebook shows you how to catch quality problems early. You'll intentionally inject issues (like duplicate records and future dates) into a pipeline, then use Dataplex to find them. You'll also learn how to trace problems from your reporting layer all the way back to the source data. This approach helps prevent data issues from reaching production and makes debugging faster when problems do occur.
 
 ---
 
@@ -77,21 +69,14 @@ Real-world impact includes reduced incidents from bad data, faster root cause an
 **[View Notebook](./02%20-%20Export%20Metadata.ipynb)**
 
 **What You'll Learn:**
-- Export Dataplex Universal Catalog metadata to Google Cloud Storage
-- Create BigQuery external tables with Hive partitioning over exported metadata
-- Build JavaScript UDFs to parse complex nested JSON structures
-- Create unnested views for simplified metadata querying
-- Analyze metadata using SQL for governance insights
+- Exporting Dataplex metadata to Cloud Storage
+- Creating BigQuery external tables over the exported metadata
+- Writing JavaScript UDFs to parse nested JSON
+- Building views for easier metadata queries
+- Analyzing metadata with SQL
 
-**Business Value:**
-Organizations often need to analyze their metadata at scale to answer questions like "Which datasets haven't been updated in 6 months?" or "How many tables are missing data owners?" This notebook shows how to:
-- Export metadata for offline analysis and reporting
-- Integrate metadata with BI tools like Looker Studio or Data Canvas
-- Track metadata coverage and documentation gaps
-- Monitor data estate growth and evolution over time
-- Build custom governance dashboards
-
-This enables data governance teams to measure and improve their metadata quality systematically.
+**Why This Matters:**
+Sometimes you need to answer questions about your data estate at scale, like "Which datasets haven't been updated in months?" or "What percentage of our tables have owners assigned?" This notebook shows you how to export your metadata and analyze it in BigQuery, which makes it easy to build governance dashboards or integrate with BI tools.
 
 ---
 
@@ -101,19 +86,13 @@ This enables data governance teams to measure and improve their metadata quality
 **[View Notebook](./03%20-%20Import%20Metadata.ipynb)**
 
 **What You'll Learn:**
-- Create custom aspect types for organization-specific metadata
-- Import external metadata into Dataplex Universal Catalog
-- Attach custom business metadata to existing data assets
-- Programmatically enrich catalog entries
+- Creating custom metadata fields for your specific needs
+- Importing metadata from external systems into Dataplex
+- Adding business context to technical metadata
+- Programmatically updating catalog entries
 
-**Business Value:**
-Many organizations have metadata in external systems (data catalogs, business glossaries, lineage tools) that needs to be consolidated. This notebook demonstrates how to:
-- Migrate metadata from legacy catalogs into Dataplex
-- Add business-specific metadata (data owners, stewards, classifications)
-- Enrich technical metadata with business context
-- Create a single source of truth for all data metadata
-
-This is critical for organizations consolidating multiple catalogs or migrating to Google Cloud.
+**Why This Matters:**
+If you have metadata scattered across different tools (old catalogs, spreadsheets, business glossaries), you can consolidate it into Dataplex. This notebook shows you how to bring in external metadata and add business-specific fields like data owners, stewardship info, or classification levels.
 
 ---
 
@@ -123,20 +102,13 @@ This is critical for organizations consolidating multiple catalogs or migrating 
 **[View Notebook](./04%20-%20Dataplex_OpenLineage_Example.ipynb)**
 
 **What You'll Learn:**
-- Understand the OpenLineage standard for lineage metadata
-- Send lineage events from external systems to Dataplex
-- Track data flows across cloud and on-premises systems
-- Visualize end-to-end data pipelines
+- Using the OpenLineage standard for lineage metadata
+- Sending lineage events from systems outside GCP to Dataplex
+- Tracking data flows across different platforms
+- Viewing end-to-end pipelines
 
-**Business Value:**
-Modern data architectures often span multiple clouds and on-premises systems. This notebook shows how to:
-- Track data lineage across heterogeneous environments
-- Document data transformations happening outside Google Cloud
-- Enable impact analysis for data changes
-- Comply with data governance regulations requiring lineage tracking
-- Debug data quality issues by understanding full data provenance
-
-This enables comprehensive lineage visibility regardless of where data processing occurs.
+**Why This Matters:**
+If your data pipelines span multiple clouds or on-premises systems, you need lineage that works everywhere. This notebook shows you how to use OpenLineage to track data transformations happening outside Google Cloud, giving you complete visibility into where your data comes from and where it goes.
 
 ---
 
@@ -145,7 +117,7 @@ This enables comprehensive lineage visibility regardless of where data processin
 | Notebook | Duration | Key Technologies | Primary Use Case |
 |----------|----------|------------------|------------------|
 | [00 - Universal Catalog Intro](./00%20-%20Dataplex%20Universal%20Catalog%20Introduction.ipynb) | 10 min | Catalog, Entries, Aspects | Data Discovery & Documentation |
-| [01 - Load Data & DQ](./01%20-%20Load%20data%20and%20DQ.ipynb) | 20 min | Data Quality, Lineage, Multi-format Tables | Data Quality Management |
+| [01 - Load Data & DQ](./01%20-%20Load%20data%20and%20DQ.ipynb) | 20 min | Data Quality, Data Profiling, Lineage | Data Quality Management |
 | [02 - Export Metadata](./02%20-%20Export%20Metadata.ipynb) | 5 min | Metadata Export, BigQuery Analysis | Governance Reporting |
 | [03 - Import Metadata](./03%20-%20Import%20Metadata.ipynb) | 10 min | Custom Aspects, Metadata Import | Catalog Migration & Enrichment |
 | [04 - OpenLineage](./04%20-%20Dataplex_OpenLineage_Example.ipynb) | 10 min | OpenLineage, Cross-platform Lineage | Multi-cloud Lineage Tracking |
