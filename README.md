@@ -32,7 +32,7 @@ chmod +x prerequisites.sh
 Each notebook covers a different aspect of data governance using Dataplex. You'll get hands-on experience with metadata management, data quality, and lineage tracking.
 
 ### 00 - Dataplex Universal Catalog Introduction
-**Duration:** ~10 minutes
+**Duration:** ~15 minutes
 **Technologies:** Catalog, Search, Entries, Aspects
 **[View Notebook](./00%20-%20Dataplex%20Universal%20Catalog%20Introduction.ipynb)**
 
@@ -112,10 +112,10 @@ If your data pipelines span multiple clouds or on-premises systems, you need lin
 
 | Notebook | Duration | Key Technologies | Primary Use Case |
 |----------|----------|------------------|------------------|
-| [00 - Universal Catalog Intro](./00%20-%20Dataplex%20Universal%20Catalog%20Introduction.ipynb) | 10 min | Catalog, Entries, Aspects | Data Discovery & Documentation |
+| [00 - Universal Catalog Intro](./00%20-%20Dataplex%20Universal%20Catalog%20Introduction.ipynb) | 15 min | Catalog, Entries, Aspects | Data Discovery & Documentation |
 | [01 - Load Data & DQ](./01%20-%20Load%20data%20and%20DQ.ipynb) | 20 min | Data Quality, Data Profiling, Lineage | Data Quality Management |
 | [02 - Export Metadata](./02%20-%20Export%20Metadata.ipynb) | 5 min | Metadata Export, BigQuery Analysis | Governance Reporting |
-| [03 - Import Metadata](./03%20-%20Import%20Metadata.ipynb) | 10 min | Custom Aspects, Metadata Import | Catalog Migration & Enrichment |
+| (OPTIONAL) [03 - Import Metadata](./03%20-%20Import%20Metadata.ipynb) | 10 min | Custom Aspects, Metadata Import | Catalog Migration & Enrichment |
 | [04 - OpenLineage](./04%20-%20Dataplex_OpenLineage_Example.ipynb) | 10 min | OpenLineage, Cross-platform Lineage | Multi-cloud Lineage Tracking |
 
 
