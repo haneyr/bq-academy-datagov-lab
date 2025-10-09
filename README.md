@@ -53,7 +53,6 @@ If your team wastes time hunting for data or doesn't know what datasets exist, a
 **[View Notebook](./01%20-%20Load%20data%20and%20DQ.ipynb)**
 
 **What You'll Learn:**
-- Building a Bronze → Silver → Gold data pipeline
 - Using Dataplex to detect data quality problems (duplicates, nulls, bad values, etc.)
 - Setting up automated data quality checks
 - Tracing quality issues back to their source with column-level lineage
@@ -71,7 +70,6 @@ Bad data breaks reports and leads to wrong decisions. This notebook shows you ho
 **What You'll Learn:**
 - Exporting Dataplex metadata to Cloud Storage
 - Creating BigQuery external tables over the exported metadata
-- Writing JavaScript UDFs to parse nested JSON
 - Building views for easier metadata queries
 - Analyzing metadata with SQL
 
@@ -86,13 +84,11 @@ Sometimes you need to answer questions about your data estate at scale, like "Wh
 **[View Notebook](./03%20-%20Import%20Metadata.ipynb)**
 
 **What You'll Learn:**
-- Creating custom metadata fields for your specific needs
 - Importing metadata from external systems into Dataplex
-- Adding business context to technical metadata
 - Programmatically updating catalog entries
 
 **Why This Matters:**
-If you have metadata scattered across different tools (old catalogs, spreadsheets, business glossaries), you can consolidate it into Dataplex. This notebook shows you how to bring in external metadata and add business-specific fields like data owners, stewardship info, or classification levels.
+If you have metadata from other systems, like Databricks, you can consolidate it into Dataplex. This notebook shows you how to bring in external metadata.
 
 ---
 
